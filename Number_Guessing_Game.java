@@ -14,17 +14,20 @@ class Game {
     public int attemptNo = 0;
 
     Scanner sc = new Scanner(System.in);
-
+    
+    // create function to generate random number
     void randomGenerate() {
         Random r = new Random();
         computerNo = r.nextInt(1, 100);
     }
 
+    // create function to take user input
     void userInput() {
         System.out.println("Enter a guess number between 1 to 100");
         userNo = sc.nextInt();
     }
 
+    // create function to compare the computer value to user value
     boolean guessNoIsCorrect() {
         if (userNo == computerNo) {
             System.out.println("OOhhOO!, Your Number is Correct. You Win the Game!");
@@ -43,12 +46,12 @@ class Game {
 public class Number_Guessing_Game {
 
     public static void main(String[] args) {
+        // create object of Game class to call the function 
         Game g = new Game();
         System.out.println("Welcome to Guess Number Game");
         System.out.println("You Will Be Asked To Guess A Number, To Win The Game Your Guess Should Be Correct");
         System.out.println("You have Maximum 5 Attempt Limit");
         g.randomGenerate();
-        System.out.println(g.computerNo);
         boolean b = false;
         while (!b && g.attemptNo < 5) {
             g.attemptNo++;
